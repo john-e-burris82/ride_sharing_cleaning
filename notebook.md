@@ -1,17 +1,8 @@
 # Cleaning Data in Python
 
-👋 Welcome to your workspace! Here, you can write and run Python code and add text in [Markdown](https://www.markdownguide.org/basic-syntax/). Below, we've imported the datasets from the course _Cleaning Data in Python_ as DataFrames as well as the packages used in the course. This is your sandbox environment: analyze the course datasets further, take notes, or experiment with code!
-
 
 ```python
-%%capture
-# Install fuzzywuzzy
-!pip install fuzzywuzzy
-```
-
-
-```python
-# Importing course packages; you can add more too!
+# Importing packages
 import pandas as pd
 import numpy as np
 import datetime as dt
@@ -20,13 +11,8 @@ import missingno as msno
 import fuzzywuzzy
 import recordlinkage 
 
-# Importing course datasets as DataFrames
+# Importing
 ride_sharing = pd.read_csv('datasets/ride_sharing_new.csv', index_col = 'Unnamed: 0')
-airlines = pd.read_csv('datasets/airlines_final.csv',  index_col = 'Unnamed: 0')
-banking = pd.read_csv('datasets/banking_dirty.csv', index_col = 'Unnamed: 0')
-restaurants = pd.read_csv('datasets/restaurants_L2.csv', index_col = 'Unnamed: 0')
-restaurants_new = pd.read_csv('datasets/restaurants_L2_dirty.csv', index_col = 'Unnamed: 0')
-
 ```
 
 
@@ -685,14 +671,3 @@ ride_sharing.shape
 
 ## Closing Thoughts
 This is the first of 4 data sets I plan to clean. Each one has it's own unique issues. Hopefully, I learn something along the and help a person or two out as well. As most data aficionados will tell you, spending about 80% of your time cleaning and exploring your data is not uncommon. Take your time. Doing it right will not only help you to answer the question(s) at hand, it will help the actual analysis and model performance.
-
-### Don't know where to start?
-
-Try completing these tasks:
-- For each DataFrame, inspect the data types of each column and, where needed, clean and convert columns into the correct data type. You should also rename any columns to have more descriptive titles.
-- Identify and remove all the duplicate rows in `ride_sharing`.
-- Inspect the unique values of all the columns in `airlines` and clean any inconsistencies.
-- For the `airlines` DataFrame, create a new column called `International` from `dest_region`, where values representing US regions map to `False` and all other regions map to `True`.
-- The `banking` DataFrame contains out of date ages. Update the `Age` column using today's date and the `birth_date` column.
-- Clean the `restaurants_new` DataFrame so that it better matches the categories in the `city` and `type` column of the `restaurants` DataFrame. Afterward, given typos in restaurant names, use record linkage to generate possible pairs of rows between `restaurants` and `restaurants_new` using criteria you think is best.
-
